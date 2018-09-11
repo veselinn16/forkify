@@ -50,9 +50,44 @@ const displayRecipe = recipe => {
     elements.searchResultList.insertAdjacentHTML('beforeend', html);
 };
 
+// type = "prev" or "next"
+const createButton = (page, type) => `
+    <button class="btn-inline results__btn--${type}" data-goto="${type = 'next' ? page + 1 : page - 1}">
+        <svg class="search__icon">
+            <use href="img/icons.svg#icon-triangle-${type = 'next' ? 'right' : 'left'}"></use>
+        </svg>
+        <span>Page ${type = 'next' ? page + 1 : page - 1}</span>
+    </button>
+`;
+
+const renderButtons = (page, numResults, resPerPage) => {
+    const pages = Math.ceil(numResults / resPerPage);
+    let button;
+
+    if(page === 1 && pages > 1) {
+        // only a button for next page
+        button = createButton(page, 'next');
+    } else if(page < pages) {
+        // display both buttons
+        button = `
+            ${createButton(page, 'prev')}
+            ${createButton(page, 'next')}
+        `;
+    } else if(page === pages && pages > 1){
+        // only a button for previous page
+        button = createButton(page, 'prev');
+    }
+
+    elements.searchResultsPages.insertAdjacentHTML('afterbegin', button);
+};
+
 export const displayResults = (recipes, page = 1, resPerPage = 10) => {
+    // Display results of current page
     const start = (page - 1) * resPerPage;
     const end = page * resPerPage;
 
     recipes.slice(start, end).forEach(displayRecipe);
+
+    // Display pagination results
+    renderButtons(page, recipes.length, resPerPage);
 };
