@@ -8,6 +8,7 @@ export const clearInput = () => {
     elements.searchInput.value = '';
 }
 
+// Clear recipes section
 export const clearResults = () => {
     elements.searchResultList.innerHTML = '';
 }
