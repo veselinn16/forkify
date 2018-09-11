@@ -8,7 +8,6 @@ export default class Search {
             const result = await fetch(`https://www.food2fork.com/api/search?key=${apiKey}&q=${this.query}`)
             const data = await result.json();
             this.result = data.recipes
-            console.log(this.result)
         } catch(err) {
             console.log(err)
         }
