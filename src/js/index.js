@@ -13,7 +13,6 @@ const state = {};
 const controlSearch = async () => {
     // Get query from view
     const query = searchView.getInput();
-    console.log(query)
 
     // if there is a query 
     if(query) {
@@ -26,7 +25,7 @@ const controlSearch = async () => {
         await state.search.getResults();
 
         // Display results in the UI, AFTER we receive results
-        console.log(state.search.result)
+        searchView.displayResults(state.search.result);
     }
 }
 
