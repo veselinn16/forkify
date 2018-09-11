@@ -3,6 +3,11 @@ import { elements } from './base'
 // Get value of search field input
 export const getInput = () => elements.searchInput.value;
 
+// clears input after displaying result in UI
+export const clearInput = () => {
+    elements.searchInput.value = '';
+}
+
 const displayRecipe = recipe => {
     const html = `
     <li>
