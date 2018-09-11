@@ -12,6 +12,7 @@ export default class Search {
             this.result = data.recipes
         } catch(err) {
             console.log(err)
+            alert('Something went wrong :(')
         }
     }
 }

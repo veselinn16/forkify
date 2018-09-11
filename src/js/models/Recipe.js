@@ -23,7 +23,7 @@ export default class Recipe {
     calcTime() {
         // Assuming we need 15 min for each 3 ingredients
         const numOfIng = this.ingredients.length;
-        const periods = Math.ceil(num / 3);
+        const periods = Math.ceil(numOfIng / 3);
         this.time = periods * 15;
     }
 
