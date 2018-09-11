@@ -8,6 +8,10 @@ export const clearInput = () => {
     elements.searchInput.value = '';
 }
 
+export const clearResults = () => {
+    elements.searchResultList.innerHTML = '';
+}
+
 const displayRecipe = recipe => {
     const html = `
     <li>
@@ -27,4 +31,4 @@ const displayRecipe = recipe => {
 
 export const displayResults = recipes => {
     recipes.forEach(displayRecipe);
-}
+};

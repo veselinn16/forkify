@@ -19,8 +19,9 @@ const controlSearch = async () => {
         // add a new Search object to the state.search variable
         state.search = new Search(query);
 
-        // Prepare UI for results - clear input
+        // Prepare UI for results - clear input and clear results from previous search
         searchView.clearInput();
+        searchView.clearResults();
 
         // Search for recipes
         await state.search.getResults();
