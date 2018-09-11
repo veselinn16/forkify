@@ -33,10 +33,21 @@ const controlSearch = async () => {
         clearLoader();
         searchView.clearInput();
     }
-}
+};
 
 elements.searchForm.addEventListener('submit', e => {
     // prevent reload of page
     e.preventDefault();
     controlSearch();
-})
+});
+
+elements.searchResults.addEventListener('click', e => {
+    // get the button only, not the svg or span
+    const btn = e.target.closest('.btn-inline');
+    if (btn) {
+        // get value of data-goto attribute
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        searchView.clearResults();
+        searchView.displayResults(state.search.result, goToPage);
+    }
+});

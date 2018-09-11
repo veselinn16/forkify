@@ -11,6 +11,7 @@ export const clearInput = () => {
 // Clear recipes section
 export const clearResults = () => {
     elements.searchResultList.innerHTML = '';
+    elements.searchResultsPages.innerHTML = '';
 }
 
 // Shorten the names of the recipes if they are above 17 chars long
@@ -50,13 +51,14 @@ const displayRecipe = recipe => {
     elements.searchResultList.insertAdjacentHTML('beforeend', html);
 };
 
+// Create a button for the pagination in the recipes tab
 // type = "prev" or "next"
 const createButton = (page, type) => `
-    <button class="btn-inline results__btn--${type}" data-goto="${type = 'next' ? page + 1 : page - 1}">
+    <button class="btn-inline results__btn--${type}" data-goto="${type === 'next' ? page + 1 : page - 1}">
         <svg class="search__icon">
-            <use href="img/icons.svg#icon-triangle-${type = 'next' ? 'right' : 'left'}"></use>
+            <use href="img/icons.svg#icon-triangle-${type === 'next' ? 'right' : 'left'}"></use>
         </svg>
-        <span>Page ${type = 'next' ? page + 1 : page - 1}</span>
+        <span>Page ${type === 'next' ? page + 1 : page - 1}</span>
     </button>
 `;
 
@@ -67,15 +69,18 @@ const renderButtons = (page, numResults, resPerPage) => {
     if(page === 1 && pages > 1) {
         // only a button for next page
         button = createButton(page, 'next');
+        console.log('1')
     } else if(page < pages) {
         // display both buttons
         button = `
             ${createButton(page, 'prev')}
             ${createButton(page, 'next')}
         `;
+        console.log('2', page, resPerPage)
     } else if(page === pages && pages > 1){
         // only a button for previous page
         button = createButton(page, 'prev');
+        console.log('3')
     }
 
     elements.searchResultsPages.insertAdjacentHTML('afterbegin', button);
