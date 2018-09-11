@@ -5,10 +5,12 @@ export const elements = {
     searchResults: document.querySelector('.results')
 };
 
+// Strings for html elements, which are not in the DOM at page load
 export const elementStrings = {
     loader: 'loader'
 };
 
+// Put loader in UI
 export const renderLoader = parent => {
     const loader = `
         <div class="${elementStrings.loader}">
@@ -22,6 +24,7 @@ export const renderLoader = parent => {
     parent.insertAdjacentHTML('afterbegin', loader);
 };
 
+// Remove loader from UI
 export const clearLoader = () => {
     const loader = document.querySelector(`.${elementStrings.loader}`);
     (loader) && loader.parentElement.removeChild(loader)

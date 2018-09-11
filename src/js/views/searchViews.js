@@ -48,8 +48,11 @@ const displayRecipe = recipe => {
     </li>
     `;
     elements.searchResultList.insertAdjacentHTML('beforeend', html);
-}
+};
 
-export const displayResults = recipes => {
-    recipes.forEach(displayRecipe);
+export const displayResults = (recipes, page = 1, resPerPage = 10) => {
+    const start = (page - 1) * resPerPage;
+    const end = page * resPerPage;
+
+    recipes.slice(start, end).forEach(displayRecipe);
 };
