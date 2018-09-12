@@ -113,6 +113,18 @@ const controlList = () => {
     });
 }
 
+// Handle delete and update list item events
+elements.shopping.addEventListener('click', e => {
+    const id = e.target.closest('.shopping__item').dataset.itemid;
+
+    // Handle delete event
+    if(e.target.matches('.shopping__delete, .shopping__delete *')) {
+        // delete from state and UI
+        state.list.deleteItem(id);
+        listView.deleteItem(id);
+    }
+});
+
 // Handle recipe button clicks
 elements.recipe.addEventListener('click', e => {
     if(e.target.matches('.btn-decrease, .btn-decrease *')) {
