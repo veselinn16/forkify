@@ -25,7 +25,7 @@ export const highlightSelected = id => {
 };
 
 // Shorten the names of the recipes if they are above 17 chars long
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if(title.length > limit) {
         title.split(' ').reduce((accumulator, current) => {
