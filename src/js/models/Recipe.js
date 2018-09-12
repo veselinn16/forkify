@@ -41,11 +41,49 @@ export default class Recipe {
                 ingredient = ingredient.replace(unit, unitsShort[i]);
             });
 
-            // Remove parentheses
+            // Remove parentheses and replace them with empty space
             ingredient = ingredient.replace(/ *\([^)]*\) */g, ' ');
 
             // Parse ingredients into count, unit and ingredient
-            return ingredient;
+                // - convert ingredients string to array
+            const arrIng = ingredient.split(' ');
+
+                // - returns the index of the element when it matches the test
+            const unitIndex = arrIng.findIndex(el2 => unitsShort.includes(el2));
+
+            let objIngredient;
+            if(unitIndex > -1) {
+                // test is true for one or more elements
+                const arrCount = arrIng.slice(0, unitIndex); // Ex.: 4 1/2 cups -> arrCount = [4, 1/2]
+                
+                let count;
+                if(arrCount.length === 1) {
+                    count = eval(arrIng[0].replace('-', '+'));
+                } else {
+                    count = eval(arrIng.slice(0, unitIndex).join('+'));
+                }
+
+                objIngredient = {
+                    count,
+                    unit: arrIng[unitIndex],
+                    ingredient: arrIng.slice(unitIndex + 1).join(' ')
+                };
+            } else if (parseInt(arrIng[0], 10)) {
+                // there is no unit found, but the 1st element is a number
+                objIngredient = {
+                    count: parseInt(arrIng[0], 10),
+                    unit: '',
+                    ingredient: arrIng.slice(1).join(' ')
+                }
+            } else if (unitIndex === -1) {
+                // no unit was found
+                objIngredient = {
+                    count: 1,
+                    unit: '',
+                    ingredient
+                }
+            }
+            return objIngredient;
         });
         this.ingredients = newIngredients;
     }
