@@ -134,6 +134,8 @@ elements.shopping.addEventListener('click', e => {
 });
 
 state.likes = new Likes();
+likesView.toggleLikeMenu(state.likes.getNumberLikes());
+
 // Like Controller
 const controlLike = () => {
     if(!state.likes) state.likes = new Likes();
@@ -159,6 +161,7 @@ const controlLike = () => {
         // Remove like from UI
         console.log(state.likes);
     }
+    likesView.toggleLikeMenu(state.likes.getNumberLikes());
 };
 
 // Handle recipe button clicks
