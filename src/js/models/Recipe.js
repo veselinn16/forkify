@@ -34,6 +34,8 @@ export default class Recipe {
     parseIngredients() {
         const unitsLong = ['tablespoons', 'tablespoon', 'ounces', 'ounce', 'teaspoons', 'teaspoon'];
         const unitsShort = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp'];
+        const units = [...unitsShort, 'kg', 'g'];
+
         const newIngredients = this.ingredients.map(el => {
             // If we find in the ingredients of a recipe a word from the unitsLong, array, replace it with its shorter counterpart in unitsShort array
             let ingredient = el.toLowerCase();
@@ -49,7 +51,7 @@ export default class Recipe {
             const arrIng = ingredient.split(' ');
 
                 // - returns the index of the element when it matches the test
-            const unitIndex = arrIng.findIndex(el2 => unitsShort.includes(el2));
+            const unitIndex = arrIng.findIndex(el2 => units.includes(el2));
 
             let objIngredient;
             if(unitIndex > -1) {
