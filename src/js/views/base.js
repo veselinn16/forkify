@@ -6,7 +6,8 @@ export const elements = {
     searchResultsPages: document.querySelector('.results__pages'),
     recipe: document.querySelector('.recipe'),
     shopping: document.querySelector('.shopping__list'),
-    likesMenu: document.querySelector('.likes__field')
+    likesMenu: document.querySelector('.likes__field'),
+    likesList: document.querySelector('.likes__list')
 };
 
 // Strings for html elements, which are not in the DOM at page load

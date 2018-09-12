@@ -21,7 +21,7 @@ export const highlightSelected = id => {
         el.classList.remove('results__link--active');
     })
     // Select recipe based on css attribute
-    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+    document.querySelector(`.results__link[href="#${id}"]`).classList.add('results__link--active');
 };
 
 // Shorten the names of the recipes if they are above 17 chars long
