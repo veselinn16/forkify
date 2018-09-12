@@ -32,7 +32,7 @@ export default class Recipe {
     }
 
     parseIngredients() {
-        const unitsLong = ['tablespoons', 'tablespoon', 'ounce', 'ounces', 'teaspoon', 'teaspoons'];
+        const unitsLong = ['tablespoons', 'tablespoon', 'ounces', 'ounce', 'teaspoons', 'teaspoon'];
         const unitsShort = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp'];
         const newIngredients = this.ingredients.map(el => {
             // If we find in the ingredients of a recipe a word from the unitsLong, array, replace it with its shorter counterpart in unitsShort array
@@ -42,9 +42,10 @@ export default class Recipe {
             });
 
             // Remove parentheses
-
+            ingredient = ingredient.replace(/ *\([^)]*\) */g, ' ');
 
             // Parse ingredients into count, unit and ingredient
+            return ingredient;
         });
         this.ingredients = newIngredients;
     }
