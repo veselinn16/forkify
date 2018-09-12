@@ -13,6 +13,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
 // - shopping list object
 // - liked object
 const state = {};
+window.state = state;
 
 // Search Controller
 const controlSearch = async () => {
@@ -122,6 +123,11 @@ elements.shopping.addEventListener('click', e => {
         // delete from state and UI
         state.list.deleteItem(id);
         listView.deleteItem(id);
+
+        // handle count update
+    } else if (e.target.matches('.shopping__count-value')) {
+        const value = parseFloat(e.target.value, 10);
+        state.list.updateCount(id, value);
     }
 });
 
