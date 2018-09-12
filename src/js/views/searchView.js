@@ -6,13 +6,23 @@ export const getInput = () => elements.searchInput.value;
 // Clears input after displaying result in UI
 export const clearInput = () => {
     elements.searchInput.value = '';
-}
+};
 
 // Clear recipes section
 export const clearResults = () => {
     elements.searchResultList.innerHTML = '';
     elements.searchResultsPages.innerHTML = '';
-}
+};
+
+export const highlightSelected = id => {
+    // first remove if there is any recipe selected previously
+    const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+    resultsArr.forEach(el => {
+        el.classList.remove('results__link--active');
+    })
+    // Select recipe based on css attribute
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+};
 
 // Shorten the names of the recipes if they are above 17 chars long
 const limitRecipeTitle = (title, limit = 17) => {
