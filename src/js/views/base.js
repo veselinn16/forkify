@@ -3,7 +3,8 @@ export const elements = {
     searchForm : document.querySelector('.search'),
     searchResultList: document.querySelector('.results__list'),
     searchResults: document.querySelector('.results'),
-    searchResultsPages: document.querySelector('.results__pages')
+    searchResultsPages: document.querySelector('.results__pages'),
+    recipe: document.querySelector('.recipe')
 };
 
 // Strings for html elements, which are not in the DOM at page load
