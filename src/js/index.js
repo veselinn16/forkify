@@ -15,7 +15,6 @@ import { elements, renderLoader, clearLoader } from './views/base';
 // - shopping list object
 // - liked object
 const state = {};
-window.state = state;
 
 // Search Controller
 const controlSearch = async () => {

@@ -24,7 +24,6 @@ export const renderLike = like => {
         </a>
     </li>
     `;
-    console.log(html);
     elements.likesList.insertAdjacentHTML('beforeend', html);
 };
 

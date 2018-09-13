@@ -25,7 +25,7 @@ export default class Likes {
     }
 
     getNumberLikes() {
-        this.likes.length;
+        return this.likes.length;
     }
 
     persistData() {
