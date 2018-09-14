@@ -476,7 +476,7 @@ body {
     .shopping__count input {
       color: inherit;
       font-family: inherit;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       text-align: center;
       border: none;
       width: 3.7rem;
@@ -485,10 +485,10 @@ body {
         outline: none;
         background-color: #F2EFEE; }
     .shopping__count p {
-      font-size: 1.2rem; }
+      font-size: 1.4rem; }
   .shopping__description {
     flex: 1;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     margin-top: .4rem;
     margin-right: 1.5rem; }
   .shopping__delete {
