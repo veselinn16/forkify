@@ -99,8 +99,8 @@ body {
   .btn-inline span {
     margin: 0 .4rem; }
   .btn-inline:hover {
-    color: #ab4962;
-    background-color: #F2EFEE; }
+    color: #fff;
+    background-color: #971c3c; }
   .btn-inline:focus {
     outline: none; }
 
