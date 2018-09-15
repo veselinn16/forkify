@@ -7,6 +7,10 @@
 *::after {
   box-sizing: inherit; }
 
+::selection { 
+  background: #971c3c;
+  color: #fff; }
+
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
